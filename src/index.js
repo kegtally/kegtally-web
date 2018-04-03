@@ -6,7 +6,10 @@ import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider } from "react-apollo";
-const API = process.env.API_URL || "http://localhost:8000/graphql/";
+const API =
+  process.env.NODE_ENV === "production"
+    ? "https://radiant-refuge-35147.herokuapp.com/graphql/"
+    : "http://localhost:8000/graphql/";
 console.log("API: ", API);
 
 const client = new ApolloClient({
