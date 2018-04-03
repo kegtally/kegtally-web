@@ -6,7 +6,8 @@ import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider } from "react-apollo";
-const API = "http://localhost:8000/graphql/";
+const API = process.env.API_URL || "http://localhost:8000/graphql/";
+console.log("API: ", API);
 
 const client = new ApolloClient({
   // By default, this client will send queries to the
