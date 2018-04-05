@@ -1,31 +1,19 @@
 import React from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import { Page, Layout, Card, ResourceList } from "@shopify/polaris";
+import { Header, Container } from "semantic-ui-react";
+import HomeStatistics from "./components/HomeStatistics";
+import HomeTable from "./components/HomeTable";
 
 const Home = ({ data: { beers = [] } }) => {
-  const renderItem = (item, index) => {
-    return <ResourceList.Item key={index} {...item} />;
-  };
-
   return (
-    <Page title="Keg Tally">
-      <Layout>
-        <Layout.Section>
-          <Card title="Beers" sectioned>
-            <ResourceList
-              items={beers.map(beer => {
-                return {
-                  url: `/${beer.id}`,
-                  attributeOne: beer.name
-                };
-              })}
-              renderItem={renderItem}
-            />
-          </Card>
-        </Layout.Section>
-      </Layout>
-    </Page>
+    <Container>
+      <Header as="h2" icon textAlign="center">
+        <Header.Content>Kegs</Header.Content>
+      </Header>
+      <HomeStatistics />
+      <HomeTable />
+    </Container>
   );
 };
 
