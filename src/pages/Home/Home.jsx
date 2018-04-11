@@ -12,7 +12,7 @@ const Home = ({ data: { beers = [] } }) => {
         <Header.Content>Kegs</Header.Content>
       </Header>
       <HomeStatistics />
-      <HomeTable />
+      <HomeTable beers={beers} />
     </Container>
   );
 };
@@ -21,7 +21,13 @@ export default graphql(gql`
   query {
     beers {
       name
-      id
+      batches {
+        fills {
+          keg {
+            litres
+          }
+        }
+      }
     }
   }
 `)(Home);
