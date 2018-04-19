@@ -21,13 +21,9 @@ export default graphql(gql`
   query {
     beers {
       name
-      batches {
-        fills {
-          keg {
-            litres
-          }
-        }
-      }
+      fiftyCount
+      thirtyCount
+      twentyCount
     }
   }
 `)(Home);

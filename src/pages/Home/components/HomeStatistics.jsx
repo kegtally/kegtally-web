@@ -10,11 +10,7 @@ const HomeStatistics = ({ data: { batches = [] } }) => {
         <Grid.Row>
           <Grid.Column textAlign="center">
             <Statistic>
-              <Statistic.Value>
-                {batches.reduce((acc, b) => {
-                  return b.litres + acc;
-                }, 0)}
-              </Statistic.Value>
+              <Statistic.Value>1000</Statistic.Value>
               <Statistic.Label>Litres</Statistic.Label>
             </Statistic>
           </Grid.Column>
